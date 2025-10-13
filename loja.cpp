@@ -3,6 +3,7 @@
 using namespace std;
 
 int main(){
+    system("clear");
     int escolha;
    do{ 
     cout << "------------------------------------------------------" << endl;
@@ -16,7 +17,7 @@ int main(){
     if(escolha == 1){
         jogo();
     }else if(escolha == 0){
-        cout << endl << "Obrigado por visitar!";
+        cout << endl << "Obrigado por visitar!" << endl;
         return 0;
     }else{
         cout << "Escolha invalida! Escolha uma opcao valida!" << endl;

@@ -2,6 +2,7 @@
 using namespace std;
 
 void jogo(){
+   system("clear");
     cout << "--------------------------------------------------------------------------" << endl;
     cout << "Bem vindo a loja! (Para sair, selecione um numero diferente de 1,2,3 ou 4)" << endl;
     cout << "--------------------------------------------------------------------------" << endl;
@@ -27,34 +28,10 @@ void jogo(){
         cout << endl << endl << "Obrigado por fazer compras! Ate a proxima!" << endl << endl << endl;
         exit(0);
     }
-
+    while (true){
+   if(valorCarteira >= valorprod2 || valorprod3 || valorprod4){
    
-
-      while(valorprod2 || valorprod3 || valorprod4 <= valorCarteira){
-    if(escolhaProd == 1){
-           valorCarteira -= 1;
-        float valorReceber1 = valorprod1 * 2;
-           valorCarteira += valorReceber1;
-        }
-    if(escolhaProd == 2){
-           valorCarteira -= 5;
-        float valorReceber2 = valorprod2 * 1.4;
-           valorCarteira += valorReceber2;
-        }
-    if(escolhaProd == 3){
-           valorCarteira -= 50;
-        float valorReceber3 = valorprod3 * 1.3;
-           valorCarteira += valorReceber3;
-        }
-    if(escolhaProd == 4){
-           valorCarteira -= 200;
-        float valorReceber4 = valorprod4 * 1.2;
-           valorCarteira += valorReceber4;
-        }
-      }
-
-
-    while(escolhaProd == 1 || 2 || 3 || 4){ 
+    if(escolhaProd == 1 || 2 || 3 || 4){ 
 
     switch (escolhaProd){ 
 
@@ -65,7 +42,7 @@ void jogo(){
         float valorReceber1E;
         valorReceber1E = valorprod1E * 2;
            valorCarteira += valorReceber1E; 
-    cout << "Obteve: " << valorReceber1E << " euros de volta!" << endl;
+    cout << endl <<"Obteve: " << valorReceber1E << " euros de volta!" << endl;
     cout << endl << "Fazer mais compras?" << endl;
      cout << "________________________________________________________________________________________________________________________" << endl << endl;
      cout << "Carteira: " << valorCarteira << endl << endl;
@@ -80,7 +57,7 @@ void jogo(){
         float valorReceber2E;
         valorReceber2E = valorprod2E * 1.4;
            valorCarteira += valorReceber2E;
-    cout << "Obteve: " << valorReceber2E << " euros de volta!" << endl;
+    cout << endl << "Obteve: " << valorReceber2E << " euros de volta!" << endl;
         cout << endl << "Fazer mais compras?" << endl;
         cout << "________________________________________________________________________________________________________________________" << endl << endl;
         cout << "Carteira: " << valorCarteira << endl << endl;
@@ -95,7 +72,7 @@ void jogo(){
         float valorReceber3E;
         valorReceber3E = valorprod3E * 1.3;
            valorCarteira += valorReceber3E;
-    cout << "Obteve: " << valorReceber3E << " euros de volta!"  << endl;
+    cout << endl <<"Obteve: " << valorReceber3E << " euros de volta!"  << endl;
         cout << endl << "Fazer mais compras?" << endl;
         cout << "________________________________________________________________________________________________________________________" << endl << endl;
         cout << "Carteira: " << valorCarteira << endl << endl;
@@ -109,10 +86,9 @@ void jogo(){
         valorprod4E = 200; 
         valorCarteira -= 200;
         float valorReceber4E;
-        valorReceber4E = valorprod4 * 1.2;
+        valorReceber4E = valorprod4E * 1.3;
            valorCarteira += valorReceber4E;
-
-    cout << "Obteve: " << valorReceber4E << " euros de volta!"  << endl;
+    cout << endl <<"Obteve: " << valorReceber4E << " euros de volta!"  << endl;
         cout << endl << "Fazer mais compras?" << endl;
         cout << "________________________________________________________________________________________________________________________" << endl << endl;
         cout << "Carteira: " << valorCarteira << endl << endl;
@@ -121,8 +97,20 @@ void jogo(){
         cin >> escolhaProd;
 
     break;
-
+    case 5:
+    if(escolhaProd > 4 || escolhaProd < 1){
+      cout << endl << endl << "Obrigado por fazer compras! Ate a proxima!" << endl << endl << endl;
+      exit(0);
+  }
+  break;
+}
+    
 }    
+}else{
+   cout << endl << "Nao tem dinheiro suficiente, experimente comprar algo mais barato!" << endl;
+   break;
 }
 }
+}
+
 
