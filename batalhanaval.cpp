@@ -65,29 +65,30 @@ void printBoard(char board[N][N], bool showShips) {
         cout << "\n";
     }
 }
+Barco barcoCinco;
 
-void barco5(Barco &barcoCinco){
+void barco5VIEW(Barco barcoCinco){
     if (barcoCinco.horizontal == true){
         barco5H();
     }else if (barcoCinco.horizontal == false){
         barco5V();
     }
 }
-void barco4(Barco &barcoQuatro){
+void barco4VIEW(Barco &barcoQuatro){
     if(barcoQuatro.horizontal == true){
         barco4H();
     }else if(barcoQuatro.horizontal == false){
         barco4V();
     }
 }
-void barco3(Barco &barcoTres){
+void barco3VIEW(Barco &barcoTres){
     if(barcoTres.horizontal == true){
         barco3H();
     }else if (barcoTres.horizontal == false){
         barco3V();
     }
 }
-void barco2(Barco &barcoDois){
+void barco2VIEW(Barco &barcoDois){
     if(barcoDois.horizontal == true){
         barco2H();
     }else if(barcoDois.horizontal == false){
@@ -106,7 +107,8 @@ int main(){
         }
     }
     printBoard(board, false );
-
+    barcoCinco.horizontal = true;
+    barco5VIEW(barcoCinco);
 
     return 0;
 }
