@@ -5,6 +5,23 @@
 #include <limits>
 using namespace std;
 
+void clear(){
+    #ifdef WIN32
+        system("CLS");
+    #else
+        system("clear");
+    #endif
+}
+bool boolSwitch(bool& Boolean){
+    if (Boolean == true){
+        return false;
+    }else{
+        return true;
+    }
+
+    return true;
+}
+
 void barco5H(){
     cout << "B B B B B" << endl;
 }
@@ -74,9 +91,11 @@ Barco barcoDois;
 
 
 void barco5VIEW(Barco barcoCinco){
-    if (barcoCinco.horizontal == true){
+    if (barcoCinco.horizontal = "h"){
+        barcoCinco.horizontal = true;
         barco5H();
-    }else if (barcoCinco.horizontal == false){
+    }else if (barcoCinco.horizontal = "v"){
+        barcoCinco.horizontal = false;
         barco5V();
     }
 }
@@ -104,12 +123,11 @@ void barco2VIEW(Barco barcoDois){
 
 
 int main(){
-    //system("clear");
-    system("CLS");
+    clear();
 cout << "Player 1 turn!" << endl;
 cout << endl << "Press ENTER to continue ";
 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    system("CLS");
+    clear();
     char board[N][N];
     for(int r=0; r<N; r++){
         for(int c=0;c < N; c++){
@@ -119,10 +137,24 @@ std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     printBoard(board, false );
     cout << endl;
     
-    
+    barcoCinco.tamanho = 5;
+    barcoCinco.coluna;
+    barcoCinco.linha;
+    barcoCinco.destruido = false;
+    barcoCinco.horizontal;
+
+    cout << "   'h'" << endl;
+    barco5H();
+    cout << endl;
+    cout << "'v'" << endl;
+    barco5V();
 
 
-   /*barcoCinco.horizontal = false;
+    cout << endl << "Choose the boat's direction(h/v): ";
+    cin >> barcoCinco.horizontal;
+    barco5VIEW(barcoCinco);
+
+    /*barcoCinco.horizontal = false;
     barco5VIEW(barcoCinco);*/
 
     return 0;
