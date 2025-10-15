@@ -3,52 +3,44 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-/*
-void barco5h(){
-    cout << endl << "***** ***** ***** ***** *****" << endl;
-    cout << "*   * *   * *   * *   * *   *" << endl;
-    cout << "***** ***** ***** ***** *****" << endl;
 
-}   
-void barco4h(){
-    cout << endl << "***** ***** ***** *****" << endl;
-    cout<< "*   * *   * *   * *   *" << endl;
-    cout<< "***** ***** ***** *****" << endl;
+void barco5H(){
+    cout << "BBBBB" << endl;
 }
-void barco3h(){
-    cout << endl << "***** ***** *****" << endl;
-    cout<< "*   * *   * *   *" << endl;
-    cout<< "***** ***** *****" << endl;
+void barco5V(){
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
 }
-void barco2h(){
-    cout << endl << "***** *****" << endl;
-    cout<< "*   * *   *" << endl;
-    cout<< "***** *****" << endl;
+void barco4H(){
+    cout << "BBBB" << endl;
 }
-*/
-/*
-void blocoAgua(){
-    cout << " ---" << endl;
-    cout << "|   |" << endl;
-    cout << " ---" << endl;
+void barco4V(){
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
 }
-void blocoAguaTiro(){
-    cout << " ---" << endl;
-    cout << "| 0 |" << endl;
-    cout << " ---" << endl;
+void barco3H(){
+    cout << "BBB" << endl;
 }
-void blocoBarco(){
-    cout << " ---" << endl;
-    cout << "| B |" << endl;
-    cout << " ---" << endl;
+void barco3V(){
+    cout << "B" << endl;
+    cout << "B" << endl;
+    cout << "B" << endl;
 }
-void blocoBarcoTiro(){
-    cout << " ---" << endl;
-    cout << "| X |" << endl;
-    cout << " ---" << endl;
+void barco2H(){
+    cout << "BB" << endl;
 }
-*/
-const int TAM = 10;
+void barco2V(){
+    cout << "B" << endl;
+    cout << "B" << endl;
+}
+
+
+const int N = 10;
 const int NUM_Barcos = 5;
 
 struct Barco{
@@ -59,20 +51,62 @@ struct Barco{
     bool destruido;
 };
 
-void inicializarTab(char tabuleiro[TAM][TAM]){
-    for (int i = 0 ; i < TAM ; i++)
-        for (int j = 0 ; j < TAM ; j++)
-            tabuleiro[i][j] = '~';
+void printBoard(char board[N][N], bool showShips) {
+    cout << "   ";
+    for (int c = 1; c <= N; c++) cout << c << " ";
+    cout << "\n";
+
+    for (int r = 0; r < N; r++) {
+        cout << r + 1 << " "; 
+        if (r + 1 < 10) cout << " "; 
+        for (int c = 0; c < N; c++) {
+            cout << ((board[r][c] == 'S' && !showShips) ? '.' : board[r][c]) << " ";
+        }
+        cout << "\n";
+    }
 }
 
-void printTab (char tabuleiro[TAM][TAM], bool esconder){
-    
+void barco5(Barco &barcoCinco){
+    if (barcoCinco.horizontal == true){
+        barco5H();
+    }else if (barcoCinco.horizontal == false){
+        barco5V();
+    }
 }
-
+void barco4(Barco &barcoQuatro){
+    if(barcoQuatro.horizontal == true){
+        barco4H();
+    }else if(barcoQuatro.horizontal == false){
+        barco4V();
+    }
+}
+void barco3(Barco &barcoTres){
+    if(barcoTres.horizontal == true){
+        barco3H();
+    }else if (barcoTres.horizontal == false){
+        barco3V();
+    }
+}
+void barco2(Barco &barcoDois){
+    if(barcoDois.horizontal == true){
+        barco2H();
+    }else if(barcoDois.horizontal == false){
+        barco2V();
+    }
+}
 
 
 int main(){
     //system("clear");
     system("CLS");
+    char board[N][N];
+    for(int r=0; r<N; r++){
+        for(int c=0;c < N; c++){
+            board[r][c] = '.';
+        }
+    }
+    printBoard(board, false );
+
+
     return 0;
 }
