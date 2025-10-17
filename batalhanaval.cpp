@@ -63,7 +63,7 @@ const int NUM_Barcos = 5;
 
 struct Barco{
     int linha;
-    int coluna;
+    char coluna;
     int tamanho;
     bool horizontal;
     bool destruido;
@@ -91,32 +91,46 @@ Barco barcoDois;
 
 
 void barco5VIEW(Barco barcoCinco){
-    if (barcoCinco.horizontal = "h"){
+    do{
+    if(barcoCinco.horizontal = 'h'){
         barcoCinco.horizontal = true;
         barco5H();
-    }else if (barcoCinco.horizontal = "v"){
+        break;
+    }else if(barcoCinco.horizontal = 'v'){
         barcoCinco.horizontal = false;
         barco5V();
+        break;
+    }else{
+        cout << endl << "Invalid direction! Try again." << endl;
+        
     }
-}
+    }while(barcoCinco.horizontal != 'h', 'v');
+    }    
+    
 void barco4VIEW(Barco barcoQuatro){
-    if(barcoQuatro.horizontal == true){
+    if (barcoQuatro.horizontal = "h"){
+        barcoQuatro.horizontal = true;
         barco4H();
-    }else if(barcoQuatro.horizontal == false){
+    }else if (barcoQuatro.horizontal = "v"){
+        barcoQuatro.horizontal = false;
         barco4V();
     }
 }
 void barco3VIEW(Barco barcoTres){
-    if(barcoTres.horizontal == true){
+     if (barcoTres.horizontal = "h"){
+        barcoTres.horizontal = true;
         barco3H();
-    }else if (barcoTres.horizontal == false){
+    }else if (barcoTres.horizontal = "v"){
+        barcoTres.horizontal = false;
         barco3V();
     }
 }
 void barco2VIEW(Barco barcoDois){
-    if(barcoDois.horizontal == true){
+    if (barcoDois.horizontal = "h"){
+        barcoDois.horizontal = true;
         barco2H();
-    }else if(barcoDois.horizontal == false){
+    }else if (barcoDois.horizontal = "v"){
+        barcoDois.horizontal = false;
         barco2V();
     }
 }
@@ -135,8 +149,9 @@ std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     printBoard(board, false );
-    cout << endl;
+
     
+
     barcoCinco.tamanho = 5;
     barcoCinco.coluna;
     barcoCinco.linha;
@@ -149,10 +164,14 @@ std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "'v'" << endl;
     barco5V();
 
-
     cout << endl << "Choose the boat's direction(h/v): ";
     cin >> barcoCinco.horizontal;
     barco5VIEW(barcoCinco);
+    cout << endl << "Choose the boat's coordinates(Ex:A10): ";
+    cin >> barcoCinco.coluna, barcoCinco.linha;
+    while(barcoCinco.coluna != 'A', 'B','C','D','E','F','G','H','I','J' && barcoCinco.linha >= 1 && barcoCinco.linha <= 10){
+
+    }
 
     /*barcoCinco.horizontal = false;
     barco5VIEW(barcoCinco);*/
