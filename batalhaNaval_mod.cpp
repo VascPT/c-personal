@@ -1,3 +1,4 @@
+//Codigo feito por Vasco Franco e Bernardo Teves
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
