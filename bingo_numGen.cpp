@@ -5,7 +5,7 @@
 #ifdef WIN32_
         #include <windows.h>
     #else
-        //#include <unistd.h>
+        #include <unistd.h>
     #endif
 using namespace std;
 #define TOTAL_NUMS 100
