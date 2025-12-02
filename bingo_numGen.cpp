@@ -27,6 +27,10 @@ void clear(){
 }
 //track numbers that have been drawn
 bool drawn[TOTAL_NUMS + 1] = {false};
+//store up to 5 numbers
+int recentNumbers[5];
+//how many numbers are currently stored
+int recentCount = 0;
 
 void showNumbers(){
     //shows all the 100 nums
@@ -43,6 +47,38 @@ void showNumbers(){
         cout << "\n";
     }
     }
+}
+void addtoRecent(int num) {
+    //shift all numbers to the left making room at the end
+    //removes the oldest number
+    for (int i = 0; i < 4; i++) {
+        recentNumbers[i] = recentNumbers[i + 1];
+    }
+    //add new number at the end (most recent)
+    recentNumbers[4] = num;
+    //update count (max at 5)
+    if (recentCount < 5) {
+        recentCount++;
+    }
+}
+
+void showRecentNumbers() {
+    if (recentCount == 0) {
+        cout << PURPLE << "Recent numbers: None yet" << RESET;
+        return;
+    }
+    
+    cout << PURPLE << "Recent numbers: ";
+    
+    //only show the actual numbers we have
+    int startIndex = 5 - recentCount;//show from where we have valid data
+    for (int i = startIndex; i < 5; i++) {
+        cout << recentNumbers[i];
+        if (i < 4) {
+            cout << ", ";
+        }
+    }
+    cout << RESET;
 }
 
 int drawrandNum(){
@@ -61,7 +97,7 @@ int drawrandNum(){
     int num = pool[index];
 
     drawn[num] = true; //mark number as drawn (yellow)
-
+    addtoRecent(num);
     return num;
 }
 
@@ -70,12 +106,31 @@ int main(){
     clear();
     cout << endl << "Welcome to BINGO! Here is the table of numbers. Good luck!" << endl << endl;
     showNumbers();
+    //initialize recent numbers array
+    for (int i = 0; i < 5; i++) {
+        recentNumbers[i] = 0;  //0 means empty slot
+    }
     cout << RESET << "Press enter to rool a number ";
-    drawrandNum();
     //press enter to continue
     cin.ignore();
-    clear();
-    showNumbers();
+     while (true) {
+        clear();
+
+        int num = drawrandNum();
+
+        if (num == -1) {
+            cout << YELLOW << "\nAll numbers have been drawn!" << RESET << endl;
+            break;
+        }
+
+        cout << "Number drawn: " << YELLOW << num << RESET << "\n\n";
+
+        showNumbers();
+        cout << "\n";
+        showRecentNumbers();
+        cout << RESET << "\nPress ENTER to draw again ";
+        cin.ignore();
+    }
 
     return 0;
 }
