@@ -64,11 +64,11 @@ void addtoRecent(int num) {
 
 void showRecentNumbers() {
     if (recentCount == 0) {
-        cout << PURPLE << "Recent numbers: None yet" << RESET;
+        cout << PURPLE << "Recent numbers (last 5): None yet" << RESET;
         return;
     }
     
-    cout << PURPLE << "Recent numbers: ";
+    cout << PURPLE << "Recent numbers (last 5): ";
     
     //only show the actual numbers we have
     int startIndex = 5 - recentCount;//show from where we have valid data
